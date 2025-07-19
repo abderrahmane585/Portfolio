@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+   /* === Global Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f0f;
+  color: #f5f5f5;
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* === Navbar === */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #121212;
+  z-index: 1000;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4ee1d2;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #f5f5f5;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: #4ee1d2;
+}
+
+/* === Hero Section === */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.typing {
+  font-size: 22px;
+  font-style: italic;
+  color: #4ee1d2;
+  min-height: 30px;
+}
+
+/* === About Section === */
+.about h2,
+.projects h2,
+.contact h2 {
+  font-size: 36px;
+  color: #4ee1d2;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.about p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #d0d0d0;
+}
+
+/* === Projects Section === */
+.projects .project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.projects .project-card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.projects .project-card:hover {
+  transform: translateY(-6px);
+}
+
+.projects .project-card h3 {
+  margin-bottom: 10px;
+  color: #4ee1d2;
+}
+
+.projects .project-card p {
+  font-size: 15px;
+  color: #ccc;
+}
+
+/* === Contact Form === */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1e1e1e;
+  color: #f5f5f5;
+  font-size: 16px;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: 2px solid #4ee1d2;
+}
+
+.contact button {
+  background-color: #4ee1d2;
+  color: #000;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #36c9ba;
+}
+
+#form-message {
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
+  min-height: 20px;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #121212;
+  color: #999;
+  margin-top: 80px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .typing {
+    font-size: 18px;
+  }
+}
+
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Abderrahmane</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h1>Hello, I'm Abderrahmane</h1>
+    <div class="typing" id="typing-text"></div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a creative web developer with a passion for building beautiful and functional websites. 
+      I specialize in front-end development and love working on interactive designs.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>A simple landing page built using HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>A portfolio template with animations and responsive design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/movlvgyo"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+  </section>
+
+  <footer>
+    &copy; 2025 Abderrahmane. All Rights Reserved.
+  </footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Typing animation
+  const texts = ["Web Developer", "UI/UX Designer", "Freelancer"];
+  const typingElement = document.getElementById("typing-text");
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const current = texts[index];
+    if (isDeleting) {
+      typingElement.textContent = current.substring(0, charIndex--);
+    } else {
+      typingElement.textContent = current.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === current.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      index = (index + 1) % texts.length;
+      setTimeout(type, 500);
+    } else {
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+  }
+
+  type();
+
+  // Form success feedback (only visual if using Formspree)
+  const form = document.getElementById("contact-form");
+  const formMessage = document.getElementById("form-message");
+
+  form.addEventListener("submit", function (e) {
+    formMessage.textContent = "Sending...";
+    formMessage.style.color = "#4ee1d2";
+  });
+});
+</script>
+
+</body>
+</html>
