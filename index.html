@@ -59,6 +59,37 @@
       padding: 0 1rem;
     }
     /* Navigation */
+   .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #333;
+      padding: 15px;
+      color: white;
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
     nav {
       position: fixed;
       top: 0;
@@ -216,58 +247,26 @@
       border-top: 1px solid var(--shadow);
       user-select: none;
     }
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      nav ul {
-        gap: 0.7rem;
+/* Responsive tweaks */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #222;
+        width: 200px;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
       }
-      
-      
-        .hero {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-        }
 
-        .herolog {
-          width: 400;
-        }
+      .nav-links.show {
+        display: flex;
+      }
 
-        .name, .title {
-          font-size: 2rem;
-        }
-
-        .arrow {
-         display: none;
-        }
-
-        .about {
-          flex-direction: column-reverse;
-          align-items: center;
-          gap: 1rem;
-        }
-
-
-        .textcontainer {
-          align-items: center;
-          margin: 0rem 5rem;
-          gap: 1rem;
-        }
-
-        .light {
-          width: 60px;
-        }
-
-
-        .contact {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-        }
-
-      
-      .container {
-        margin: 6rem auto 3rem;
+      .hamburger {
+        display: block;
       }
     }
 
@@ -291,6 +290,7 @@
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
     <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+    <div class="hamburger" id="hamburger">☰</div>
   </nav>
 
   <main class="container">
@@ -403,10 +403,21 @@
     }, observerOptions);
 
     document.querySelectorAll('.project-card, section').forEach(el => observer.observe(el));
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    });
+    
   </script>
 
 </body>
 
 </html>
+
 
 
